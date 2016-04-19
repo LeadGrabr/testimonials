@@ -1,6 +1,6 @@
 {
   "name": "@leadgrabr/testimonials",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "markup to display customer testimonials",
   "main": "dist/index.js",
   "scripts": {
