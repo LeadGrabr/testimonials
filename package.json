@@ -2,7 +2,7 @@
   "name": "@leadgrabr/testimonials",
   "version": "0.0.1",
   "description": "markup to display customer testimonials",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src/**",
     "prebuild": "rm -rf dist",
@@ -26,5 +26,8 @@
     "eslint-plugin-jsx-control-statements": "^2.1.0",
     "eslint-plugin-react": "^5.0.1",
     "jsx-control-statements": "^3.1.2"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint"
   }
 }
