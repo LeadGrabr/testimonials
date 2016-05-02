@@ -2,7 +2,7 @@ import { default as React, PropTypes } from 'react'
 import { Flex, Box } from 'reflexbox'
 import { Base, Heading, Text } from 'rebass'
 
-const Testimonial = ({ img, name, size, text, width }, { breakpoints: { small } }) => {
+const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints: { small } }) => {
     const textAlign = width > small ? 'left' : 'center'
     return (
         <Flex
@@ -19,8 +19,8 @@ const Testimonial = ({ img, name, size, text, width }, { breakpoints: { small } 
                     style={{
                         backgroundImage: `url('${img}')`,
                         backgroundSize: 'cover',
-                        height: size,
-                        width: size
+                        height: imgSize,
+                        width: imgSize
                     }}
                 />
             </Box>
