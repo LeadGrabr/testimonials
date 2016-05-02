@@ -2,7 +2,7 @@ import { default as React, PropTypes } from 'react'
 import { Flex, Box } from 'reflexbox'
 import { Base, Heading, Text } from 'rebass'
 
-const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints: { small } }) => {
+const Testimonial = ({ img, name, size, text, width }, { breakpoints: { small } }) => {
     const textAlign = width > small ? 'left' : 'center'
     return (
         <Flex
@@ -19,8 +19,8 @@ const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints: { small
                     style={{
                         backgroundImage: `url('${img}')`,
                         backgroundSize: 'cover',
-                        height: imgSize,
-                        width: imgSize
+                        height: size,
+                        width: size
                     }}
                 />
             </Box>
@@ -41,8 +41,8 @@ const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints: { small
 
 Testimonial.propTypes = {
     img: PropTypes.string.isRequired,
-    imgSize: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    size: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
     width: PropTypes.number
 }
@@ -52,7 +52,7 @@ Testimonial.contextTypes = {
 }
 
 Testimonial.propTypes = {
-    imgSize: 100
+    size: 100
 }
 
 const Testimonials = ({ testimonials, ...props }) =>
