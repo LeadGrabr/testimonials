@@ -41,8 +41,8 @@ const Testimonial = ({ img, name, size, text, width }, { breakpoints: { small } 
 
 Testimonial.propTypes = {
     img: PropTypes.string.isRequired,
+    imgSize: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    size: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
     width: PropTypes.number
 }
@@ -52,7 +52,7 @@ Testimonial.contextTypes = {
 }
 
 Testimonial.propTypes = {
-    size: 100
+    imgSize: 100
 }
 
 const Testimonials = ({ testimonials, ...props }) =>
