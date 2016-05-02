@@ -51,7 +51,7 @@ Testimonial.contextTypes = {
     breakpoints: PropTypes.object.isRequired
 }
 
-Testimonial.propTypes = {
+Testimonial.defaultProps = {
     imgSize: 100
 }
 
