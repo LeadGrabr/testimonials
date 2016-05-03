@@ -3,8 +3,8 @@ import { Flex, Box } from 'reflexbox'
 import { Base, Heading, Text } from 'rebass'
 
 const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints = {} }) => {
-    const textAlign = width > small ? 'left' : 'center'
     const { small } = breakpoints
+    const textAlign = width > small ? 'left' : 'center'
     return (
         <Flex
             align="center"
