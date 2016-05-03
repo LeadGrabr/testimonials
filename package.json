@@ -1,7 +1,7 @@
 {
   "name": "@leadgrabr/testimonials",
-  "version": "0.0.9",
-  "description": "markup to display customer testimonials",
+  "version": "0.1.0",
+  "description": "markup to display a list of customer testimonials, or individual testimonials.",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src/**",
