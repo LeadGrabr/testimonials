@@ -12,8 +12,8 @@ describe('Headshot', () => {
     beforeEach(() => {
         renderer.render(
             <Headshot
-                img="foobar"
-                imgSize={100}
+                size={100}
+                src="foobar"
             />
         )
         tree = renderer.getRenderOutput()

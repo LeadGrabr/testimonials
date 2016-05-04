@@ -3,7 +3,7 @@ import { Flex, Box } from 'reflexbox'
 import { Heading, Text } from 'rebass'
 import { Headshot } from '.'
 
-const Testimonial = ({ hideImg, href, img, imgSize, name, text, width }, { breakpoints = {} }) => {
+const Testimonial = ({ headshot, href, img, imgSize, name, text, width }, { breakpoints = {} }) => {
     const { small } = breakpoints
     const textAlign = width > small ? 'left' : 'center'
     return (
@@ -12,7 +12,7 @@ const Testimonial = ({ hideImg, href, img, imgSize, name, text, width }, { break
             column={!width || !(width > small)}
             mb={2}
         >
-            <If condition={!hideImg}>
+            <If condition={headshot}>
                 <Box
                     mb={2}
                     px={2}
@@ -20,14 +20,14 @@ const Testimonial = ({ hideImg, href, img, imgSize, name, text, width }, { break
                     <If condition={href}>
                         <a href={href}>
                             <Headshot
-                                img={img}
-                                imgSize={imgSize}
+                                size={imgSize}
+                                src={img}
                             />
                         </a>
                         <Else/>
                         <Headshot
-                            img={img}
-                            imgSize={imgSize}
+                            size={imgSize}
+                            src={img}
                         />
                     </If>
                 </Box>
@@ -54,7 +54,7 @@ const Testimonial = ({ hideImg, href, img, imgSize, name, text, width }, { break
 }
 
 Testimonial.propTypes = {
-    hideImg: PropTypes.bool.isRequired,
+    headshot: PropTypes.bool.isRequired,
     href: PropTypes.string,
     img: PropTypes.string.isRequired,
     imgSize: PropTypes.number,
@@ -64,7 +64,7 @@ Testimonial.propTypes = {
 }
 
 Testimonial.defaultProps = {
-    hideImg: false
+    headshot: true
 }
 
 Testimonial.contextTypes = {

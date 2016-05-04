@@ -1,25 +1,25 @@
 import { default as React, PropTypes } from 'react'
 import { Base } from 'rebass'
 
-const Headshot = ({ img, imgSize }) =>
+const Headshot = ({ src, size }) =>
     <Base
         circle
         style={{
-            backgroundImage: `url('${img}')`,
+            backgroundImage: `url('${src}')`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
-            height: imgSize,
-            width: imgSize
+            height: size,
+            width: size
         }}
     />
 
 Headshot.propTypes = {
-    img: PropTypes.string.isRequired,
-    imgSize: PropTypes.number.isRequired
+    size: PropTypes.number.isRequired,
+    src: PropTypes.string.isRequired
 }
 
 Headshot.defaultProps = {
-    imgSize: 100
+    size: 100
 }
 
 export default Headshot
