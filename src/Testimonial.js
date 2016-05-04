@@ -19,6 +19,7 @@ const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints = {} }) 
                     circle
                     style={{
                         backgroundImage: `url('${img}')`,
+                        backgroundPosition: 'center',
                         backgroundSize: 'cover',
                         height: imgSize,
                         width: imgSize
