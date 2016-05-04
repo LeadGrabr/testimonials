@@ -56,7 +56,7 @@ const Testimonial = ({ headshot, href, img, imgSize, name, text, width }, { brea
 Testimonial.propTypes = {
     headshot: PropTypes.bool.isRequired,
     href: PropTypes.string,
-    img: PropTypes.string.isRequired,
+    img: PropTypes.string,
     imgSize: PropTypes.number,
     name: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
