@@ -35,7 +35,13 @@ const Testimonial = ({ href, img, imgSize, name, text, width }, { breakpoints = 
                     level={4}
                     style={{ textAlign }}
                 >
-                    {name}
+                    <If condition={href}>
+                        <a href={href}>
+                            {name}
+                        </a>
+                        <Else/>
+                        {name}
+                    </If>
                 </Heading>
                 <Text style={{ textAlign }}>
                     {text}
