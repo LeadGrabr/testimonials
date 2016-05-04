@@ -1,9 +1,9 @@
 import { default as React, PropTypes } from 'react'
 import { Flex, Box } from 'reflexbox'
 import { Heading, Text } from 'rebass'
-import { default as TestimonialHeadshot } from './TestimonialHeadshot'
+import { Headshot } from '.'
 
-const Testimonial = ({ href, img, imgSize, name, text, width }, { breakpoints = {} }) => {
+const Testimonial = ({ hideImg, href, img, imgSize, name, text, width }, { breakpoints = {} }) => {
     const { small } = breakpoints
     const textAlign = width > small ? 'left' : 'center'
     return (
@@ -12,24 +12,26 @@ const Testimonial = ({ href, img, imgSize, name, text, width }, { breakpoints = 
             column={!width || !(width > small)}
             mb={2}
         >
-            <Box
-                mb={2}
-                px={2}
-            >
-                <If condition={href}>
-                    <a href={href}>
-                        <TestimonialHeadshot
+            <If condition={!hideImg}>
+                <Box
+                    mb={2}
+                    px={2}
+                >
+                    <If condition={href}>
+                        <a href={href}>
+                            <Headshot
+                                img={img}
+                                imgSize={imgSize}
+                            />
+                        </a>
+                        <Else/>
+                        <Headshot
                             img={img}
                             imgSize={imgSize}
                         />
-                    </a>
-                    <Else/>
-                    <TestimonialHeadshot
-                        img={img}
-                        imgSize={imgSize}
-                    />
-                </If>
-            </Box>
+                    </If>
+                </Box>
+            </If>
             <Box px={2}>
                 <Heading
                     level={4}
@@ -52,12 +54,17 @@ const Testimonial = ({ href, img, imgSize, name, text, width }, { breakpoints = 
 }
 
 Testimonial.propTypes = {
+    hideImg: PropTypes.bool.isRequired,
     href: PropTypes.string,
     img: PropTypes.string.isRequired,
     imgSize: PropTypes.number,
     name: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     width: PropTypes.number
+}
+
+Testimonial.defaultProps = {
+    hideImg: false
 }
 
 Testimonial.contextTypes = {

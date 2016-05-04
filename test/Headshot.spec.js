@@ -1,17 +1,17 @@
 import { default as React } from 'react'
 import { default as TestUtils } from 'react-addons-test-utils'
 import { default as expect } from 'expect'
-import { default as TestimonialHeadshot } from '../src/TestimonialHeadshot'
+import { Headshot } from '../src'
 import { Base } from 'rebass'
 
 const renderer = TestUtils.createRenderer()
 
-describe('TestimonialHeadshot', () => {
+describe('Headshot', () => {
     let tree
 
     beforeEach(() => {
         renderer.render(
-            <TestimonialHeadshot
+            <Headshot
                 img="foobar"
                 imgSize={100}
             />

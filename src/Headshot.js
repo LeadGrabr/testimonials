@@ -1,7 +1,7 @@
 import { default as React, PropTypes } from 'react'
 import { Base } from 'rebass'
 
-const TestimonialHeadshot = ({ img, imgSize }) =>
+const Headshot = ({ img, imgSize }) =>
     <Base
         circle
         style={{
@@ -13,13 +13,13 @@ const TestimonialHeadshot = ({ img, imgSize }) =>
         }}
     />
 
-TestimonialHeadshot.propTypes = {
+Headshot.propTypes = {
     img: PropTypes.string.isRequired,
     imgSize: PropTypes.number.isRequired
 }
 
-TestimonialHeadshot.defaultProps = {
+Headshot.defaultProps = {
     imgSize: 100
 }
 
-export default TestimonialHeadshot
+export default Headshot
