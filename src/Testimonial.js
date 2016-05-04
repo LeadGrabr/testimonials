@@ -3,7 +3,7 @@ import { Flex, Box } from 'reflexbox'
 import { Heading, Text } from 'rebass'
 import { Headshot } from '.'
 
-const Testimonial = ({ headshot, href, img, imgSize, name, text, width }, { breakpoints = {} }) => {
+const Testimonial = ({ headshot, href, img, imgSize, name, text, truncateTextAt, width }, { breakpoints = {} }) => { // eslint-disable-line max-len
     const { small } = breakpoints
     const textAlign = width > small ? 'left' : 'center'
     return (
@@ -46,7 +46,11 @@ const Testimonial = ({ headshot, href, img, imgSize, name, text, width }, { brea
                     </If>
                 </Heading>
                 <Text style={{ textAlign }}>
-                    {text}
+                    <If condition={text.length > truncateTextAt}>
+                        {text.substring(0, truncateTextAt)}...
+                        <Else/>
+                        {text}
+                    </If>
                 </Text>
             </Box>
         </Flex>
@@ -60,11 +64,13 @@ Testimonial.propTypes = {
     imgSize: PropTypes.number,
     name: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
+    truncateTextAt: PropTypes.number.isRequired,
     width: PropTypes.number
 }
 
 Testimonial.defaultProps = {
-    headshot: true
+    headshot: true,
+    truncateTextAt: Infinity
 }
 
 Testimonial.contextTypes = {
