@@ -1,6 +1,6 @@
 {
   "name": "@leadgrabr/testimonials",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "markup to display a list of customer testimonials, or individual testimonials.",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "prebuild": "rm -rf dist",
     "build": "babel -d dist/ src/",
     "prepublish": "npm run lint && npm run build",
-    "test": "mocha test --compilers js:babel-register"
+    "test": "npm run lint; mocha test --compilers js:babel-register"
   },
   "author": "",
   "license": "ISC",

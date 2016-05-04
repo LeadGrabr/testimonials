@@ -1,8 +1,9 @@
 import { default as React, PropTypes } from 'react'
 import { Flex, Box } from 'reflexbox'
-import { Base, Heading, Text } from 'rebass'
+import { Heading, Text } from 'rebass'
+import { default as TestimonialHeadshot } from './TestimonialHeadshot'
 
-const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints = {} }) => {
+const Testimonial = ({ href, img, imgSize, name, text, width }, { breakpoints = {} }) => {
     const { small } = breakpoints
     const textAlign = width > small ? 'left' : 'center'
     return (
@@ -15,16 +16,19 @@ const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints = {} }) 
                 mb={2}
                 px={2}
             >
-                <Base
-                    circle
-                    style={{
-                        backgroundImage: `url('${img}')`,
-                        backgroundPosition: 'center',
-                        backgroundSize: 'cover',
-                        height: imgSize,
-                        width: imgSize
-                    }}
-                />
+                <If condition={href}>
+                    <a href={href}>
+                        <TestimonialHeadshot
+                            img={img}
+                            imgSize={imgSize}
+                        />
+                    </a>
+                    <Else/>
+                    <TestimonialHeadshot
+                        img={img}
+                        imgSize={imgSize}
+                    />
+                </If>
             </Box>
             <Box px={2}>
                 <Heading
@@ -42,8 +46,9 @@ const Testimonial = ({ img, imgSize, name, text, width }, { breakpoints = {} }) 
 }
 
 Testimonial.propTypes = {
+    href: PropTypes.string,
     img: PropTypes.string.isRequired,
-    imgSize: PropTypes.number.isRequired,
+    imgSize: PropTypes.number,
     name: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     width: PropTypes.number
@@ -51,10 +56,6 @@ Testimonial.propTypes = {
 
 Testimonial.contextTypes = {
     breakpoints: PropTypes.object
-}
-
-Testimonial.defaultProps = {
-    imgSize: 100
 }
 
 export default Testimonial
